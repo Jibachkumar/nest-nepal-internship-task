@@ -2,6 +2,12 @@ import dotenv from "dotenv";
 import express from "express";
 import helmet from "helmet";
 import cookieParser from "cookie-parser";
+import fs from "fs"
+import swaggerUi from "swagger-ui-express";
+
+const swaggerFile = JSON.parse(
+  fs.readFileSync(new URL("../swagger-output.json", import.meta.url))
+);
 
 dotenv.config({
   path: "./.env",
@@ -24,6 +30,8 @@ app.use(cookieParser());
 import { userRouter } from "./routes/user.routes.js";
 import { salesRouter } from "./routes/sales.routes.js";
 
+// Swagger UI
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 // routes declaration
 app.use("/api/v1/users", userRouter);

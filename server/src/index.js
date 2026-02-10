@@ -10,6 +10,7 @@ connectDB()
   .then(() => {
     app.listen(process.env.PORT, () => {
       console.log(`Server is running at port localhost:${process.env.PORT}`);
+      console.log(`swagger at port localhost:${process.env.PORT}/api-docs`)
     });
   })
   .catch((error) => {
