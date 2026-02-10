@@ -5,11 +5,7 @@
     "description": "API documentation for my project",
     "version": "1.0.0"
   },
-  "host": "localhost:7000",
   "basePath": "/",
-  "schemes": [
-    "http"
-  ],
   "paths": {
     "/api/v1/users/register": {
       "post": {
